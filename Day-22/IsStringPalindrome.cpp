@@ -7,94 +7,62 @@
 #include <bits/stdc++.h> 
 using namespace std;
 
-
-
+//function which checks for any special characters:-
 bool isValid(char ch){
-
-    if((ch >= 'a' && ch<= 'z') || (ch >= 'A' && ch <= 'Z') || (ch>= '0' &&  ch <= '9')){
-
+    if((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' &&  ch <= '9')){
         return 1;
-
     }
+    return 0;
+}
 
-    
-
-        return 0;
-
-    }
-
-
-
-    
-
-char tolower(char ch){
-
-    if((ch >='a' && ch <='z')||(ch >= '0' && ch <='9')){
-
+//function which makes Not Case Sensitive:-
+char toLower(char ch){
+    if((ch >='a' && ch <= 'z') || (ch >='0' && ch<='9')){
         return ch;
-
     }
 
     else{
-
-        return ch-'A' + 'a';
-
+        ch = ch - 'A' + 'a';
+        return ch;  
     }
 
 }
 
-int palindrome(string a){
+//function which checks if it is palindrome or not:-
+bool Ispalindrome(string a){
+    int start = 0;
+    int end = a.length()-1;
 
-    int st=0; int e = a.length()-1;
+    while(start<=end){
+        if(a[start]!=a[end]){
+            return 0;
+        }
 
-    while(st<=e){
-
-    if(a[st]!=a[e]){
-
-                    return 0;
-
-                }
-
-                else{
-
-                    st++;e--;
-
-                }
+        else{
+            start++;
+            end--;
+        }
 
     }
 
-    return 1;}
+    return 1;
+}
 
 bool checkPalindrome(string s)
-
 {
-
-    
-
     string temp = "";
-
     int n = s.size();
 
     for(int i=0; i<n; i++){
-
         if(isValid(s[i])){
-
             temp.push_back(s[i]);
-
-        } 
-
+        }
     }
 
+    for(int i=0; i<temp.length();i++){
+        temp[i] = toLower(temp[i]);
+    }
+
+    return Ispalindrome(temp);
     
-
-
-
-    for(int i =0; i<temp.length();i++){
-
-        temp[i] = tolower(temp[i]);
-
-    }
-
-return palindrome( temp );
-
 }
