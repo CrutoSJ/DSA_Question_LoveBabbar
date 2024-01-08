@@ -19,7 +19,6 @@ bool checkPalindrome(vector<int>& ans, int s, int e){
 
 	return checkPalindrome(ans, s+1, e-1);
 
-
 }
 
 bool checkPalindrome(long long N)
