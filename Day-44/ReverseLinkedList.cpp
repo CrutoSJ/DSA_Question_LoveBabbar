@@ -9,7 +9,7 @@ using namespace std;
 
 /****************************************************************
 
-    Following is the class structure of the LinkedListNode class:
+    Following is the class structure of the LinkedListNode class: */
 
     template <typename T>
     class LinkedListNode
@@ -24,7 +24,7 @@ using namespace std;
         }
     };
 
-*****************************************************************/
+/*****************************************************************/
 
 void revLL(LinkedListNode<int>* &head, LinkedListNode<int>* curr, LinkedListNode<int>* prvs ){
 
