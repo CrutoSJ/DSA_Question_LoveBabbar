@@ -103,6 +103,4 @@ Node* sortList(Node* head){
     Node *ans = merge(left, right);
     return ans;
 
-
-
-}
+};
