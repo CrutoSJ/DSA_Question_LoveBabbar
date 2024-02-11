@@ -36,7 +36,5 @@ string stringSum(string &num1, string &num2) {
 
     }
 
-
-
     return result;
 }
