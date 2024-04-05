@@ -4,6 +4,8 @@
 
 // You must write an algorithm that runs in O(n) time and uses only constant extra space.
 
+// Attempt - 2
+
 // #Solution:-
 
 #include<bits/stdc++.h>
