@@ -10,6 +10,8 @@
 
 // You must solve it in O(log(arr.length)) time complexity.
 
+// Attempt - 02
+
 // #Solution:-
 
 #include<bits/stdc++.h>
