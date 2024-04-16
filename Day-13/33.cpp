@@ -8,6 +8,8 @@
 
 // You must write an algorithm with O(log n) runtime complexity.
 
+//Attempt - 2
+
 // #Solution:-
 
 #include<bits/stdc++.h>
