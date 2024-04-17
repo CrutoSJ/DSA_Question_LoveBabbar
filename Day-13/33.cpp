@@ -24,7 +24,7 @@ int findPivot(vector<int>& nums, int n){
     while(s<e){
         if(nums[mid]>=nums[0]){
             s=mid+1;
-        }
+        } 
         
         else{
             e = mid;
