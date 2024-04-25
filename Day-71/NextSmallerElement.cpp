@@ -1,3 +1,9 @@
+// #Question:-
+
+// #Link -> https://www.naukri.com/code360/problems/next-smaller-element_1112581
+
+// #Solution:-
+
 #include<bits/stdc++.h>
 using namespace std;
 
