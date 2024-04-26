@@ -5,6 +5,8 @@
 // Note: Follow 0 based indexing.
 // Follow Up: Can you optimize it to O(N)
 
+//Attempt - 02
+
 // #Solution:-
 
 #include<bits/stdc++.h>
