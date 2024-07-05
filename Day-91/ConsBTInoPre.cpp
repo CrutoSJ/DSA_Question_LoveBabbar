@@ -7,7 +7,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-struct Node{
+struct Node
+{
     int data;
     struct Node* left;
     struct Node* right;
@@ -18,38 +19,35 @@ struct Node{
     }
 };
 
-class Solution {
-private:
+class Solution{
+    private:
     int findPos(int in[], int element, int start, int end){
         for(int i=start; i<=end; i++){
-            if(in[i] == element){
+            if(in[i]==element){
                 return i;
             }
         }
         return -1;
     }
     
-    Node* solve(int in[], int post[], int &index, int inOrderStart, int inOrderEnd, int n){
-        if(index<0 || inOrderStart>inOrderEnd){
+    Node* solve(int in[], int pre[], int &index, int inOrderStart, int inOrderEnd, int n){
+        if(index >= n || inOrderStart > inOrderEnd){
             return NULL;
         }
-        int element = post[index--];
+        int element = pre[index++];
         Node* root = new Node(element);
         int pos = findPos(in, element, inOrderStart, inOrderEnd);
-        if(pos == -1){
-            return NULL;
-        }
-        
-        root->right = solve(in, post, index, pos+1, inOrderEnd, n);
-        root->left = solve(in, post, index, inOrderStart, pos-1, n);
+        if(pos == -1) return NULL;
+        root->left = solve(in, pre, index, inOrderStart, pos-1, n);
+        root->right = solve(in, pre, index, pos+1, inOrderEnd, n);
         
         return root;
     }
-public:
-    // Function to return a tree created from postorder and inoreder traversals.
-    Node *buildTree(int n, int in[], int post[]) {
-        int postOrderIndex = n-1;
-        Node* ans = solve(in, post, postOrderIndex, 0, n-1, n);
+    public:
+    Node* buildTree(int in[],int pre[], int n)
+    {
+        int preOrderIndex = 0;
+        Node* ans = solve(in, pre, preOrderIndex, 0, n-1, n);
         return ans;
     }
 };
