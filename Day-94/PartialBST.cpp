@@ -35,3 +35,8 @@ bool isBST(Node *root, int min, int max){
         return false;
     }
 }
+
+bool validateBST(BinaryTreeNode<int> *root) {
+    bool ans = isBST(root, INT_MIN, INT_MAX);
+    return ans;
+}
