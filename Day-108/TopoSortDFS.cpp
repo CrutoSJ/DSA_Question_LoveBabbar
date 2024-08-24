@@ -4,46 +4,43 @@
 
 // #Solution:-
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h> 
 using namespace std;
 
-#include <bits/stdc++.h> 
-
-void topoSort(int node, unordered_map<int, list<int>> &adj, vector<bool> &visited, stack<int> &s){
+void topoSort(int node, vector<vector<int>>&adj, vector<bool> &visited, stack<int> &st){
     visited[node] = true;
 
     for(auto &nbr : adj[node]){
         if(!visited[nbr]){
-            topoSort(nbr, adj, visited, s);
+            topoSort(nbr,adj, visited, st);
         }
     }
 
-    s.push(node);
-
+    st.push(node);
 }
 
 vector<int> topologicalSort(vector<vector<int>> &edges, int v, int e)  {
-    unordered_map<int, list<int>> adj;
-    for(auto &edge: edges){
-        int u = edge[0];
-        int v = edge[1];
+    vector<vector<int>> adj(v);
+    for(auto &edge : edges){
+        int x = edge[0];
+        int y = edge[1];
 
-        adj[u].push_back(v);
+        adj[x].push_back(y);
     }
 
-    vector<bool> visited(v);
-    stack<int> s;
+    vector<bool> visited(v,false);
+    stack<int> st;
 
     for(int i=0; i<v; i++){
         if(!visited[i]){
-            topoSort(i, adj, visited, s);
+            topoSort(i, adj, visited, st);
         }
     }
 
     vector<int> ans;
-    while(!s.empty()){
-        ans.push_back(s.top());
-        s.pop();
+    while(!st.empty()){
+        ans.push_back(st.top());
+        st.pop();
     }
 
     return ans;
